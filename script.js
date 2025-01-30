@@ -46,6 +46,10 @@ function startTest() {
   updateCandle();
 }
 
+function isMobile() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function showQuestion() {
   const question = questions[currentQuestion];
   const optionsContainer = document.getElementById('options');
@@ -62,6 +66,9 @@ function showQuestion() {
 }
 
 function selectAnswer(option) {
+  if(isMobile()) {
+    window.scrollTo(0, 0); // Фиксируем позицию скролла
+}
   scores.fear += option.fear;
   scores.desire += option.desire;
   scores.spirit += option.spirit;
@@ -181,5 +188,16 @@ function createFlash() {
   setTimeout(() => flash.remove(), 300);
 }
 
+function adjustLayout() {
+  if(window.innerWidth < 768) {
+      const headerHeight = document.getElementById('header').offsetHeight;
+      document.getElementById('question-container').style.marginTop = 
+          headerHeight + 20 + 'px';
+  }
+}
+
+// Вызов при загрузке и ресайзе
+window.addEventListener('load', adjustLayout);
+window.addEventListener('resize', adjustLayout);
 // Добавьте в selectAnswer перед currentQuestion++
 createFlash();
