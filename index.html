@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Темный Лабиринт Души</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="hidden" id="header">
+            <h1 id="title">Темный Лабиринт Души</h1>
+            <p id="subtitle">Что скрывается в ваших глубинах?</p>
+        </header>
+
+        <main>
+            <section id="start-section">
+                <button id="start-btn">Войти в Лабиринт</button>
+            </section>
+
+            <section id="test-section" class="hidden">
+                <div id="candle">
+                    <div id="flame"></div>
+                    <div id="wax"></div>
+                </div>
+                <div id="question-container">
+                    <h2 id="question"></h2>
+                    <div id="options"></div>
+                </div>
+            </section>
+
+            <section id="result-section" class="hidden">
+                <h2>Диагноз вашей души:</h2>
+                <p id="result-text"></p>
+                <div id="stats">
+                    <div class="stat">
+                        <span class="stat-name">Страх</span>
+                        <div class="stat-bar"><div class="stat-fill" id="fear-stat"></div></div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Желания</span>
+                        <div class="stat-bar"><div class="stat-fill" id="desire-stat"></div></div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-name">Сила духа</span>
+                        <div class="stat-bar"><div class="stat-fill" id="spirit-stat"></div></div>
+                    </div>
+                </div>
+                <button id="restart-btn">Попробовать снова</button>
+            </section>
+        </main>
+
+        <div id="overlay"></div>
+    </div>
+
+    <audio id="background-sound" loop>
+        <source src="https://assets.mixkit.co/active_storage/sfx/257/257-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
